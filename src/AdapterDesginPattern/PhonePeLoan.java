@@ -1,8 +1,8 @@
 package AdapterDesginPattern;
 
 public class PhonePeLoan {
-    boolean loanCheck(YesBankAPI yb){
-        if(yb.getBalance() >= 100) {
+    boolean loanCheck(BankAPI yb){
+        if(yb.showBalance() >= 100) {
             System.out.println("Eligible for loan!!");
             return true;
         }

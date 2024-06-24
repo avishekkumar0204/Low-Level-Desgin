@@ -1,7 +1,7 @@
 package AdapterDesginPattern;
 
 public class PhonePe {
-    YesBankAPI yb = new YesBankAPI();
+    BankAPI yb = new ICICIBankAPIAdapter();
     PhonePeLoan loan = new PhonePeLoan();
     MobileRecharge ft = new MobileRecharge();
 
@@ -11,5 +11,9 @@ public class PhonePe {
 
     boolean mobileRecharge(int amount){
         return ft.recharge(yb, amount);
+    }
+
+    void transferAmount(int amount){
+        yb.transferBalance(amount);
     }
 }

@@ -1,8 +1,8 @@
 package AdapterDesginPattern;
 
 public class MobileRecharge {
-    boolean recharge(YesBankAPI yb, int amount){
-        if(yb.getBalance() >= amount) {
+    boolean recharge(BankAPI yb, int amount){
+        if(yb.showBalance() >= amount) {
             System.out.println("Recharge Successful!!");
             return true;
         }
