@@ -24,4 +24,8 @@ public class Student {
         this.batch = studentBuilder.batch;
         this.gradYear = studentBuilder.gradYear;
     }
+
+    static StudentBuilder getStudentBuilder(){
+        return new StudentBuilder();
+    }
 }

@@ -2,11 +2,10 @@ package Builder;
 
 public class Client {
     public static void main(String[] args) {
-        StudentBuilder studentBuilder = new StudentBuilder();
-        studentBuilder.setId(1);
-        studentBuilder.setName("Avishek");
-        studentBuilder.setBatch("Aug23");
-
-        Student s1 = new Student(studentBuilder);
+        Student s1 = Student.getStudentBuilder()
+                .setId(4)
+                .setName("Avishek")
+                .setBatch("Aug23")
+                .build();
     }
 }
