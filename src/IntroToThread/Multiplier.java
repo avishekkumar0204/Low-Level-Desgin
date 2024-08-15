@@ -7,11 +7,9 @@ import java.util.concurrent.locks.Lock;
 public class Multiplier implements Callable<Void> {
     Value value;
     ExecutorService es;
-    Lock lock;
-    Multiplier(Value v, ExecutorService es, Lock lock) {
+    Multiplier(Value v, ExecutorService es) {
         this.value = v;
         this.es = es;
-        this.lock = lock;
     }
 
     public Void call() {

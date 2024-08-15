@@ -7,11 +7,9 @@ import java.util.concurrent.locks.Lock;
 public class Adder implements Callable<Void> {
     Value value;
     ExecutorService es;
-    Lock lock;
-    Adder(Value value, ExecutorService es, Lock lock) {
+    Adder(Value value, ExecutorService es) {
         this.value = value;
         this.es = es;
-        this.lock = lock;
     }
     public Void call() {
         for(int i = 1; i <= 10; i++){
