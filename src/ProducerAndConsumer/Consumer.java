@@ -8,8 +8,10 @@ public class Consumer implements Runnable{
 
     public void run(){
         while(true){
-            if (this.store.getItems().size() > 0) {
-                this.store.removeItems();
+            synchronized (store) {
+                if (this.store.getItems().size() > 0) {
+                    this.store.removeItems();
+                }
             }
         }
     }
