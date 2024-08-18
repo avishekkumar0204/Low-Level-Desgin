@@ -1,18 +1,26 @@
 package ProducerAndConsumer;
 
+import java.util.concurrent.Semaphore;
+
 public class Consumer implements Runnable{
     Store store;
-    Consumer(Store store){
+    Semaphore producerSemaphore;
+    Semaphore consumerSemaphore;
+    Consumer(Store store, Semaphore producerSemaphore, Semaphore consumerSemaphore){
         this.store = store;
+        this.producerSemaphore = producerSemaphore;
+        this.consumerSemaphore = consumerSemaphore;
     }
 
     public void run(){
         while(true){
-            synchronized (store) {
-                if (this.store.getItems().size() > 0) {
-                    this.store.removeItems();
-                }
+            try {
+                consumerSemaphore.acquire();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
+            this.store.removeItems();
+            producerSemaphore.release();
         }
     }
 }
