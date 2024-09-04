@@ -1,17 +1,12 @@
 package StrategyEx2;
 
 public class GoogleMap {
-    public static void findPath(String from, String to, TravelMode mode) {
-        PathCalculator pc = null;
-        if(mode.equals(TravelMode.BIKE)) {
-            pc = new BikePathCalculator();
+    public static Exception findPath(String from, String to, TravelMode mode) {
+        PathCalculator pc = PathCalculatorFactory.getPathCalculator(mode);
+        if(pc == null) {
+            return new Exception("Mode of travel doesn't exist");
         }
-        else if(mode.equals(TravelMode.CAR)) {
-            pc = new CarPathCalculator();
-        }
-        else if(mode.equals(TravelMode.WALK)) {
-            pc = new WalkPathCalculator();
-        }
-        pc.findPath(from, to);
+        pc.findPath(to, from);
+        return null;
     }
 }
