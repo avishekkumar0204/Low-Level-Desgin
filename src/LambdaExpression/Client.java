@@ -14,7 +14,9 @@ public class Client {
         // Instead of creating StudentRollComparator class which implement functional interface
         // Comparator and passing it as second arg of sort method, we can directly create a object of functional
         // interface Comparator and pass it as second arg.
-        Comparator<Student> c = (Student s1, Student s2) -> {
+
+        // we don't even need arg type to pass, it will automatically map from Comparator<Student>
+        Comparator<Student> c = (s1, s2) -> {
             return Integer.compare(s1.age, s2.age);
         };
 
