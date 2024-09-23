@@ -16,11 +16,11 @@ public class Client {
         // interface Comparator and pass it as second arg.
 
         // we don't even need arg type to pass, it will automatically map from Comparator<Student>
-        Comparator<Student> c = (s1, s2) -> {
-            return Integer.compare(s1.age, s2.age);
-        };
 
-        Collections.sort(students, c);
+        // Since it only had one line of code {} and return statement is optional
+        // Comparator<Student> c = (s1, s2) -> Integer.compare(s1.age, s2.age);
+
+        Collections.sort(students, (s1, s2) -> Integer.compare(s1.age, s2.age));
 
         for(Student s : students) {
             System.out.println(s.age + " " + s.name);
