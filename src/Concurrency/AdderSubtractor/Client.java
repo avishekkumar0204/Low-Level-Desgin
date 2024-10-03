@@ -9,10 +9,9 @@ public class Client {
     public static void main(String[] args) {
         Value v = new Value(0);
         ExecutorService es = Executors.newCachedThreadPool();
-        Lock l = new ReentrantLock();
         int upto = 100;
-        Adder add = new Adder(v, upto, l);
-        Subtractor sub = new Subtractor(v, upto, l);
+        Adder add = new Adder(v, upto);
+        Subtractor sub = new Subtractor(v, upto);
 
        es.execute(add);
        es.execute(sub);

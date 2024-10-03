@@ -5,20 +5,18 @@ import java.util.concurrent.locks.Lock;
 public class Subtractor implements Runnable {
     Value val;
     int upto;
-    Lock l;
-    Subtractor(Value val, int upto, Lock l) {
+    Subtractor(Value val, int upto) {
         this.val = val;
         this.upto = upto;
-        this.l = l;
     }
 
     public void run(){
         for(int i = 1; i <= upto; i++){
-            l.lock();
-            System.out.print(this.val.val + " - " + i + " = ");
-            this.val.val -= i;
-            System.out.println(this.val.val + " Pool ---> " + Thread.currentThread().getName());
-            l.unlock();
+            synchronized(val) {
+                System.out.print(this.val.val + " - " + i + " = ");
+                this.val.val -= i;
+                System.out.println(this.val.val + " Pool ---> " + Thread.currentThread().getName());
+            }
         }
     }
 }
