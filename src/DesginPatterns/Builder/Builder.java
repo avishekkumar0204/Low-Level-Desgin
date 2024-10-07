@@ -7,20 +7,25 @@ public class Builder {
     private double psp;
     private int age;
 
-    void setId(int id){
+    Builder setId(int id){
         this.id = id;
+        return this;
     }
-    void setName(String name){
+    Builder setName(String name){
         this.name = name;
+        return this;
     }
-    void setBatch(String batch){
+    Builder setBatch(String batch){
         this.batch = batch;
+        return this;
     }
-    void setPsp(double psp){
+    Builder setPsp(double psp){
         this.psp = psp;
+        return this;
     }
-    void setAge(int age){
+    Builder setAge(int age){
         this.age = age;
+        return this;
     }
 
     int getId(){ return this.id; }

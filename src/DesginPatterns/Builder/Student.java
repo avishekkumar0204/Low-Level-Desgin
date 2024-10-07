@@ -22,4 +22,6 @@ public class Student {
         this.psp = builder.getPsp();
         this.age = builder.getAge();
     }
+
+    public static Builder getBuilder(){ return new Builder(); }
 }
