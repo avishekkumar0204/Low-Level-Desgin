@@ -28,6 +28,10 @@ public class Builder {
         return this;
     }
 
+    Student build(){
+        return new Student(this);
+    }
+
     int getId(){ return this.id; }
     String getName(){ return this.name; };
     String getBatch(){ return this.batch; }
