@@ -1,5 +1,8 @@
 package DesginPatterns.Builder;
 
+import DesginPatterns.Builder.CustomExceptions.*;
+
+
 public class Builder {
     private int id;
     private String name;
@@ -29,6 +32,13 @@ public class Builder {
     }
 
     Student build(){
+        // Moved validations also to Builder class -> Means if data is not valid we are not even calling constructor.
+        if(this.getId() <= 0){
+            throw new IdNotValid("Student id must be greater than 0");
+        }
+        if(this.getName() == null){
+            throw new NameNotPresent("Student name must be present");
+        }
         return new Student(this);
     }
 
