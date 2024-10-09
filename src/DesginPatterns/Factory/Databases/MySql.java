@@ -1,9 +1,10 @@
 package DesginPatterns.Factory.Databases;
 
-import DesginPatterns.Factory.QueryLanguage.Sql;
+import DesginPatterns.Factory.Factories.DBFactory;
+import DesginPatterns.Factory.Factories.MySqlFactory;
 
 public class MySql implements Database {
-    public Sql createQuery(){
-        return new Sql();
+    public DBFactory createDBFactory(){
+        return new MySqlFactory();
     }
 }

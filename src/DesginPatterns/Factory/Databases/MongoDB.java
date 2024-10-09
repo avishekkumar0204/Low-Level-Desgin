@@ -1,10 +1,11 @@
 package DesginPatterns.Factory.Databases;
 
-import DesginPatterns.Factory.QueryLanguage.NoSql;
-import DesginPatterns.Factory.QueryLanguage.Query;
+
+import DesginPatterns.Factory.Factories.DBFactory;
+import DesginPatterns.Factory.Factories.MongoDBFactory;
 
 public class MongoDB implements Database {
-    public Query createQuery(){
-        return new NoSql();
+    public DBFactory createDBFactory(){
+        return new MongoDBFactory();
     }
 }

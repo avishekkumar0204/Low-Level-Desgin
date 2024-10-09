@@ -1,7 +1,7 @@
 package DesginPatterns.Factory.Databases;
 
-import DesginPatterns.Factory.QueryLanguage.Query;
+import DesginPatterns.Factory.Factories.DBFactory;
 
 public interface Database {
-    Query createQuery();
+    DBFactory createDBFactory();
 }
