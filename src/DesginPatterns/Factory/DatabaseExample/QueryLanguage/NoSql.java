@@ -1,4 +1,4 @@
-package DesginPatterns.Factory.QueryLanguage;
+package DesginPatterns.Factory.DatabaseExample.QueryLanguage;
 
 public class NoSql implements Query {
     public void executeQuery(){

@@ -1,9 +1,9 @@
-package DesginPatterns.Factory;
+package DesginPatterns.Factory.DatabaseExample;
 
-import DesginPatterns.Factory.Databases.*;
-import DesginPatterns.Factory.Factories.*;
-import DesginPatterns.Factory.QueryLanguage.*;
-import DesginPatterns.Factory.Transation.Transation;
+import DesginPatterns.Factory.DatabaseExample.Databases.*;
+import DesginPatterns.Factory.DatabaseExample.Factories.*;
+import DesginPatterns.Factory.DatabaseExample.QueryLanguage.*;
+import DesginPatterns.Factory.DatabaseExample.Transation.Transation;
 
 public class UserService {
     public static void createUser(Database db){

@@ -1,7 +1,7 @@
-package DesginPatterns.Factory.Factories;
+package DesginPatterns.Factory.DatabaseExample.Factories;
 
-import DesginPatterns.Factory.QueryLanguage.*;
-import DesginPatterns.Factory.Transation.*;
+import DesginPatterns.Factory.DatabaseExample.QueryLanguage.*;
+import DesginPatterns.Factory.DatabaseExample.Transation.*;
 
 public class MongoDBFactory implements DBFactory {
     public Query createQuery(){
