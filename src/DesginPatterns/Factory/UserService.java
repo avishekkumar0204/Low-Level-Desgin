@@ -9,13 +9,7 @@ import DesginPatterns.Factory.QueryLanguage.Sql;
 
 public class UserService {
     public static void createUser(Database db){
-        Query q = null;
-        if(db instanceof MySql){
-            q = new Sql();
-        }
-        else if(db instanceof MongoDB){
-            q = new NoSql();
-        }
+        Query q = db.createQuery();
         if(q != null) {
             q.execute();
         }
