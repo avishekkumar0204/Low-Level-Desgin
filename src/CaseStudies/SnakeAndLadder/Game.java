@@ -34,7 +34,8 @@ public class Game {
             return true;
         }
         getGameCurrentStatus();
-        currPlayerIdx = (currPlayerIdx + 1) % players.size();
+        if(num != 6)
+            currPlayerIdx = (currPlayerIdx + 1) % players.size();
         return false;
     }
 
@@ -51,5 +52,7 @@ public class Game {
         for(Player p : players){
             System.out.println(p.getChoosenColor() + " " + p.playerCurrentPosition);
         }
+
+        System.out.println();
     }
 }
