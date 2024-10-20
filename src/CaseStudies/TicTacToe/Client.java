@@ -3,6 +3,7 @@ package CaseStudies.TicTacToe;
 import CaseStudies.TicTacToe.controllers.GameController;
 import CaseStudies.TicTacToe.models.*;
 import CaseStudies.TicTacToe.strategies.ColumnWinningStrategy;
+import CaseStudies.TicTacToe.strategies.EasyPlayingStrategy;
 import CaseStudies.TicTacToe.strategies.RowWinningStrategy;
 import CaseStudies.TicTacToe.strategies.WinningStrategy;
 
@@ -18,7 +19,7 @@ public class Client {
             int dimension = 3;
             List<Player> players = new ArrayList<>();
             players.add(new Player(1, "Avishek", new Symbol('X'), PlayerType.HUMAN));
-            players.add(new Player(2, "Mohit", new Symbol('0'), PlayerType.HUMAN));
+            players.add(new Bot(2, "7YtE0", new Symbol('0'), PlayerType.HUMAN, BotDifficultyLevel.EASY));
 
             List<WinningStrategy> winningStrategies = new ArrayList<>();
             winningStrategies.add(new RowWinningStrategy());

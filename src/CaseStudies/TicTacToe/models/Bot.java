@@ -20,4 +20,9 @@ public class Bot extends Player {
     public void setBotDifficultyLevel(BotDifficultyLevel botDifficultyLevel) {
         this.botDifficultyLevel = botDifficultyLevel;
     }
+
+    public Move makeMove(Board board){
+        Move move = botPlayingStrategy.makeMove(board, this);
+        return move;
+    }
 }
