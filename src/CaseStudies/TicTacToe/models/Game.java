@@ -71,4 +71,57 @@ public class Game {
         return new GameBuilder();
     }
 
+    public boolean validateMove(Move move){
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+        if(row < 0 || row >= board.getSize() || col < 0 || col >= board.getSize()){
+            return false;
+        }
+        if(!board.getGrid().get(row).get(col).getCellState().equals(CellState.EMPTY)){
+            return false;
+        }
+        return true;
+    }
+    public void makeMove(){
+        Player currentPlayer = players.get(nextPlayerIdx);
+        System.out.println(currentPlayer.getName() + " is playing!!");
+        Move move = currentPlayer.makeMove(board);
+        boolean validMove = validateMove(move);
+        if(!validMove){
+            System.out.println(currentPlayer.getName() + " not a valid move, Please try again");
+            return;
+        }
+
+        // Update the board
+        int row = move.getCell().getRow();
+        int col = move.getCell().getCol();
+        Cell cellToChnage = board.getGrid().get(row).get(col);
+        cellToChnage.setCellState(CellState.FILLED);
+        cellToChnage.setSymbol(currentPlayer.getSymbol());
+
+        moves.add(new Move(cellToChnage, currentPlayer));
+
+        // Check if current player is winner or not
+        if(checkWinner(board, move)){
+            winner = currentPlayer;
+            gameState = gameState.SUCCESS;
+        }
+        else if(moves.size() == board.getSize() * board.getSize()){
+            gameState = gameState.DRAW;
+        }
+
+        nextPlayerIdx = (nextPlayerIdx + 1) % players.size();
+
+    }
+
+    public boolean checkWinner(Board board, Move move){
+        boolean winnerFound = false;
+        for(WinningStrategy winningStrategy : winningStrategies){
+            winnerFound = winnerFound || winningStrategy.checkWinner(move, board);
+            if(winnerFound)
+                return true;
+        }
+        return false;
+    }
+
 }

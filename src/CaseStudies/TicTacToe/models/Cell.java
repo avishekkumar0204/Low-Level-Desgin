@@ -38,7 +38,11 @@ public class Cell {
         this.symbol = symbol;
     }
 
-    public static void printCellSymbol(Cell c){
-        System.out.print(c.symbol + " ");
+    public void display(){
+        if(this.getCellState() == CellState.EMPTY){
+            System.out.print("| - |");
+        } else if(this.getCellState() == CellState.FILLED){
+            System.out.print("| " + this.getSymbol().getSym() + " |");
+        }
     }
 }

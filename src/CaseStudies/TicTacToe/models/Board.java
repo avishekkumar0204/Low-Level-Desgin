@@ -30,4 +30,15 @@ public class Board {
     public void setGrid(List<List<Cell>> grid){
         this.grid = grid;
     }
+
+    public void display(){
+        List<List<Cell>> grid = this.getGrid();
+        for(int i = 0; i < grid.size(); i++){
+            for(int j = 0; j < grid.get(i).size(); j++){
+                Cell c = grid.get(i).get(j);
+                c.display();
+            }
+            System.out.println();
+        }
+    }
 }

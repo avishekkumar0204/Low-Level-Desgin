@@ -47,6 +47,7 @@ public class GameBuilder {
 
     void validatePlayerCount(){
         if(dimension - 1 != players.size()) {
+            System.out.println("Hello");
             throw new RuntimeException("Number of players are invalid!");
         }
     }

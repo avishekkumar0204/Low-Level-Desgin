@@ -22,37 +22,30 @@ public class GameController {
             revise builder design pattern.
          */
         Game game = Game.getBuilder().
-                setDimension(3).
-                setPlayers(new ArrayList<>()).
-                setWinningStrategy(new ArrayList<>())
-                .build();
+                setDimension(dimension).
+                setPlayers(players).
+                setWinningStrategy(winningStrategies).
+                build();
         return game;
     }
 
     public void displayBoard(Game game){
-        List<List<Cell>> grid = game.getBoard().getGrid();
-        for(int i = 0; i < grid.size(); i++){
-            for(int j = 0; j < grid.get(i).size(); j++){
-                Cell.printCellSymbol(grid.get(i).get(j));
-            }
-            System.out.println();
-        }
-
+        game.getBoard().display();
     }
 
     public void makeMove(Game game){
-
+        game.makeMove();
     }
 
     public GameState checkState(Game game){
-        return null;
+        return game.getGameState();
     }
 
     public void undo(Game game){
 
     }
 
-    public Player getWinner(Game game){
-        return null;
+    public String getWinner(Game game){
+        return game.getWinner().getName();
     }
 }
